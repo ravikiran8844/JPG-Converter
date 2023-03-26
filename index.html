@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPG to PNG Converter - Convert JPG images to PNG format</title>
+    <meta name="description" content="Easily convert your JPG images to PNG format with our free online converter tool. No software installation required!">
+    <meta name="keywords" content="JPG to PNG Converter, online converter, convert JPG to PNG, image conversion, PNG format">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header>
+                    <div class="logo">
+                      <!-- <a href="#"><img src="your-logo.png" alt="Your Company Name"></a> -->
+                    </div>
+                    <nav>
+                      <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">JPG to PDF</a></li>
+                        <li><a href="#">JPG to Webp</a></li>
+                        <li><a href="#">JPG to SVG</a></li>
+                        <li><a href="#">JPG to DOC</a></li>
+                        <li><a href="#">JPG to HTML</a></li>
+
+                      </ul>
+                    </nav>
+                  </header>
+            </div>
+            <div class="col-12">
+                <h1 class="my-5">JPG to PNG Converter</h1>
+                <form id="upload-form">
+                  <input type="file" id="file-input" accept=".jpg">
+                  <button type="submit">Convert to PNG</button>
+                </form>
+                <hr>
+               <div id="converted-Image__Wrapper" class="d-none">
+                <h2>Converted Image</h2>
+                <img id="converted-image">
+                <button class="mb-5" id="download-button" disabled>Download PNG</button>
+                <hr>
+               </div>
+               <div>
+                <p>The JPG to PNG Converter is a web-based tool that allows users to convert their JPG images to PNG format. The tool is simple and easy to use, and it can be accessed from any device with an internet connection.
+              The converter works by taking a JPG image that the user uploads and converting it to PNG format. PNG is a popular image format that supports transparency, high-quality images, and lossless compression. PNG images are commonly used on the web, in graphic design, and in other applications where high-quality images are required.
+            
+              </p>
+              <p>The JPG to PNG Converter is a useful tool for anyone who needs to convert their JPG images to PNG format quickly and easily. For example, if a user has a JPG image with a background that they want to remove, they can convert it to PNG format and use an image editor to remove the background. Similarly, if a user wants to display an image on a website with a transparent background, they can convert the image to PNG format and preserve the transparency.
+            
+              </p>
+              <p>Overall, the JPG to PNG Converter is a handy tool that can save users time and effort when working with images. Its simple interface and ease of use make it accessible to users of all levels of technical expertise.
+              </p>
+            </div>
+            </div>
+            <div class="col-12">
+                <div class="faq">
+                    <h2 class="mt-5 mb-3">Frequently Asked Questions</h2>
+                    <ul>
+                      <li>
+                        <h3>How do I convert a JPG image to PNG format on this website?</h3>
+                        <p>To convert a JPG image to PNG format, simply click on the "Choose File" button on the homepage, select the JPG file from your device, and then click on the "Convert" button. Once the conversion is complete, you will see the converted PNG image displayed on the website. You can then download the converted file by clicking on the "Download" button.</p>
+                      </li>
+                      <li>
+                        <h3>Is this website free to use?</h3>
+                        <p>Yes, this website is completely free to use. There is no need to create an account or pay any fees.</p>
+                      </li>
+                      <li>
+                        <h3>What file size limit does the website support?</h3>
+                        <p>The website currently supports files up to 10MB in size. If your file is larger than this, you may need to compress or resize it before uploading it to the website.</p>
+                      </li>
+                      <li>
+                        <h3>What types of JPG images can be converted on this website?</h3>
+                        <p>This website can convert most types of JPG images, including photos and graphics. However, the image must be in JPG format to be converted.</p>
+                      </li>
+                      <li>
+                        <h3>How long does it take to convert a JPG image to PNG format?</h3>
+                        <p>The conversion process typically takes just a few seconds, depending on the size of the file and the speed of your internet connection.</p>
+                      </li>
+                      <li>
+                        <h3>Is my data safe when I upload images to this website?</h3>
+                        <p>Yes, your data is safe. We take the privacy and security of our users' data very seriously, and we use SSL encryption to protect all data transmitted through the website.</p>
+                      </li>
+                      <li>
+                        <h3>Can I convert multiple JPG images at once?</h3>
+                        <p>No, currently the website only allows users to convert one JPG image at a time.</p>
+                      </li>
+                      <li>
+                        <h3>Can I convert PNG images to JPG format on this website?</h3>
+                        <p>No, this website only allows users to convert JPG images to PNG format. To convert PNG images to JPG format, you will need to use a different tool or image editor.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  
+            </div>
+            <div class="col-12">
+                <footer class="mt-5 text-center">
+                    <p>&copy; <span id="current-year"></span> JPG to PNG Converter
+                        . All rights reserved.</p>
+                  </footer>
+                  
+                  <script>
+                    const currentYear = new Date().getFullYear();
+                    document.getElementById("current-year").textContent = currentYear;
+                  </script>
+                  
+            </div>
+        </div>
+    </div>
+  
+    <script>
+      const form = document.getElementById('upload-form');
+      const fileInput = document.getElementById('file-input');
+      const convertedImage = document.getElementById('converted-image');
+      const downloadButton = document.getElementById('download-button');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const file = fileInput.files[0];
+        if (!file || !file.type.includes('image/jpeg')) {
+          alert('Please select a JPEG image file.');
+          return;
+        }
+        else{
+            const imageWrapper =  document.getElementById("converted-Image__Wrapper");
+           imageWrapper.classList.remove("d-none")
+        }
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            const pngDataUrl = canvas.toDataURL('image/png');
+            convertedImage.src = pngDataUrl;
+            downloadButton.disabled = false;
+            downloadButton.addEventListener('click', () => {
+              const link = document.createElement('a');
+              link.download = 'converted.png';
+              link.href = pngDataUrl;
+              link.click();
+            });
+          }
+          img.src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+      });
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+  </body>
+</html>
